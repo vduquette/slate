@@ -1,3 +1,8 @@
+
+require 'pdfmaker'
+
+activate :pdfmaker
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,

@@ -25,6 +25,10 @@ under the License.
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
+    <meta name="pdfkit-footer_right" content="Page [page] of [topage]">
+    <meta name="pdfkit-footer_left" content="[title] | <%= Time.new.strftime("%Y-%m-%d") %>">
+    <meta name="pdfkit-footer_line" content="">
+    <meta name="pdfkit-footer_font_size" content="8">
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <% if current_page.data.search %>
