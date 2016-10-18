@@ -1,0 +1,367 @@
+<h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+
+<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization"</span>: <span class="s2">"Token token=bce6d3ccf35424628ec997e4ff199437"</span>
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">bce6d3ccf35424628ec997e4ff199437</code> with your API key.</p>
+</blockquote>
+
+<p>DocIT uses API keys to allow access to the API. </p>
+
+<p>DocIT expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">&quot;Authorization&quot;: &quot;Token token=bce6d3ccf35424628ec997e4ff199437&quot;</code></p>
+
+<aside class="notice">
+You must replace <code>bce6d3ccf35424628ec997e4ff199437</code> with your personal API key.
+</aside>
+
+<h2 id="login">Login</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/login"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user[license_name]=dolorem2&amp;user[username]=teacher20&amp;user[password]=Password1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"auth_token\":\"bce6d3ccf35424628ec997e4ff199437\",\"first_name\":\"Rosalee\",\"last_name\":\"Leannon\",\"has_accepted_eula\":false,\"type\":\"Teacher\",\"language_code\":\"en\"}"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ETag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"9144e34eb434ebb745c6bfac5ffe16bf\""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=0, private, must-revalidate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94b4eb0d-5300-4b84-8377-162480dd958a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.102852"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"158"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The login with DocIT authorization endpoint validates the authorization/authentication request and responds with the user&rsquo;s API key to use in further signed requests.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /api/v2/login</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>license_name</td>
+<td>true</td>
+<td>string</td>
+</tr>
+<tr>
+<td>username</td>
+<td>true</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h2 id="logout">Logout</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/logout"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token token=bce6d3ccf35424628ec997e4ff199437"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Content"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95ab9bf3-9ba9-4edc-8e01-c7df02642004"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.040197"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Logout of the current user session.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /api/v2/logout</code></p>
+
+<h1 id="assessments">Assessments</h1>
+
+<h2 id="create-one-new-group-assessment">Create One New Group Assessment</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/assessments/bulk-set"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assessment[strand_id]=21&amp;assessment[document_id]=7&amp;assessment[is_group]=true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token token=9a4b6aecc78dd1f8411e8225b1e2501e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ETag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"7215ee9c7d9dc229d2921a40e899ec5f\""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=0, private, must-revalidate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8de35d20-8444-4f59-8ea2-25a2b1edaec1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.070257"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /api/v2/assessments/bulk-set</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>strand_id</td>
+<td>true</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>document_id</td>
+<td>true</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>is_group</td>
+<td>true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>assessments</td>
+<td>true</td>
+<td>json_object</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-one-new-individual-assessment">Create One New Individual Assessment</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/assessments/bulk-set"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assessment[strand_id]=21&amp;assessment[document_id]=7&amp;assessment[is_group]=false&amp;assessment[assessments][][student_id]=3&amp;assessment[assessments][][grade]=5&amp;assessment[assessments][][student_id]=1&amp;assessment[assessments][][grade]=3"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token token=9a4b6aecc78dd1f8411e8225b1e2501e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ETag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"7215ee9c7d9dc229d2921a40e899ec5f\""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=0, private, must-revalidate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"280acd8a-053d-45c9-aa28-68565cf0308e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.080596"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /api/v2/assessments/bulk-set</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>strand_id</td>
+<td>true</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>document_id</td>
+<td>true</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>is_group</td>
+<td>true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>assessments</td>
+<td>true</td>
+<td>json_object</td>
+</tr>
+</tbody></table>
+
+<h2 id="show-a-specific-assessment">Show a Specific Assessment</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/assessments/4"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token token=9a4b6aecc78dd1f8411e8225b1e2501e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"assessment\":{\"id\":4,\"strand_id\":19,\"document_id\":4,\"student_ids\":[11],\"grade\":3,\"is_group\":false}}"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ETag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\"eade4669f680159cb10421a6729892e2\""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=0, private, must-revalidate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72e6d0b5-5e1d-459a-a0e4-615fffee86fd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.061489"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json; charset=utf-8"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /api/v2/assessments/:id</code></p>
+
+<h2 id="delete-an-assessment">Delete an Assessment</h2>
+
+<blockquote>
+<p>Example request &amp; response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"request_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v2/assessments/12"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token token=9a4b6aecc78dd1f8411e8225b1e2501e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example.org"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cookie"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_query_parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"request_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/x-www-form-urlencoded"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_status_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Content"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response_headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"X-Frame-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMEORIGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-XSS-Protection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1; mode=block"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Content-Type-Options"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nosniff"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cache-Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no-cache"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Request-Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82e171ba-598f-46e2-8b9e-799f06780767"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"X-Runtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.036114"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"response_content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /api/v2/assessments/:id</code></p>
